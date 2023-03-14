@@ -2,6 +2,6 @@ package interfaces
 
 import "todo-app/models"
 
-type TodosService interface {
+type TodosRepository interface {
 	GetAll() []models.Todo
 }

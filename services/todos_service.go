@@ -1,9 +1,19 @@
 package services
 
+import (
+	"todo-app/interfaces"
+	"todo-app/models"
+	"todo-app/utils"
+)
+
 type TodosService struct {
-	Test string
+	Repository interfaces.TodosRepository
 }
 
-func (service *TodosService) GetAll() (string, error) {
-	return "TodoService:GetAll", nil
+func (service *TodosService) InitDependencies() {
+	utils.InitDependencies(service)
+}
+
+func (service *TodosService) GetAll() []models.Todo {
+	return service.Repository.GetAll()
 }

@@ -21,6 +21,6 @@ func (controller *TodosController) InitDependencies() {
 }
 
 func (controller *TodosController) GetAll(ctx *gin.Context) {
-	message, _ := controller.TodoService.GetAll()
-	ctx.JSON(http.StatusOK, gin.H{"data": message})
+	todos := controller.TodoService.GetAll()
+	ctx.JSON(http.StatusOK, gin.H{"data": todos})
 }
