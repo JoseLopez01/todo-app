@@ -16,7 +16,7 @@ var appServices = make(Registered)
 var appRepositories = make(Registered)
 
 func Register(object interface{}, registerType string) {
-	name := reflect.TypeOf(object).Name()
+	name := reflect.ValueOf(object).Elem().Type().Name()
 	if registerType == SERVICES {
 		appServices[name] = object
 	} else if registerType == REPOSITORIES {

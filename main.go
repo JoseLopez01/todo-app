@@ -2,9 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"todo-app/services"
-
 	"todo-app/controllers"
+	"todo-app/services"
 )
 
 func main() {

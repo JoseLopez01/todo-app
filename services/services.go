@@ -6,7 +6,7 @@ type Service interface {
 }
 
 var AppServices = []Service{
-	TodosService{
+	&TodosService{
 		Test: "test_test",
 	},
 }
