@@ -1,4 +1,5 @@
 package interfaces
 
-type TodoService interface {
+type TodosService interface {
+	GetAll() (string, error)
 }

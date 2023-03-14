@@ -13,17 +13,15 @@ func InitDependencies(object interface{}) {
 		field := element.Field(i)
 		if field.CanSet() {
 			token := field.Type().Name()
+
 			var dependency interface{}
 			dependency, err := Get(token, SERVICES)
-			if err == nil {
-				continue
-			}
-
-			dependency, err = Get(token, REPOSITORIES)
 			if err != nil {
-				panic(fmt.Errorf(messageError, token))
+				dependency, err = Get(token, REPOSITORIES)
+				if err != nil {
+					panic(fmt.Errorf(messageError, token))
+				}
 			}
-
 			field.Set(reflect.ValueOf(dependency))
 		}
 	}
